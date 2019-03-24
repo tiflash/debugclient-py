@@ -1,0 +1,3 @@
+[submodule "tests/utils/debugserver-js"]
+	path = tests/utils/debugserver-js
+	url = https://github.com/tiflash/debugserver-js.git

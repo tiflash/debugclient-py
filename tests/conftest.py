@@ -4,7 +4,7 @@ from .utils.setupparser import get_enabled_setups, get_setup_env
 from .utils import dss
 from debugclient import core
 
-SETUP_FILE = "setup.cfg"
+SETUP_FILE = os.path.join(os.path.dirname(__file__), "setup.cfg")
 
 # parametrize tenv fixture with each test setup
 def pytest_generate_tests(metafunc):
