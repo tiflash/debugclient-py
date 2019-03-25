@@ -8,5 +8,4 @@ DebugServer
 
 .. autoclass:: DebugServer
     :members:
-    :special-members:
 

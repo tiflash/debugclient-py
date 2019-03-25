@@ -8,5 +8,4 @@ DebugSession
 
 .. autoclass:: DebugSession
     :members:
-    :special-members:
 
