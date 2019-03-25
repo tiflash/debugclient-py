@@ -12,6 +12,14 @@ Documentation can be found at
 Install
 =======
 
+From PyPi
+---------
+
+*Currently not available*
+
+From Source
+-----------
+
 ::
 
     pip install .
