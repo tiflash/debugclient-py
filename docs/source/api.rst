@@ -7,7 +7,7 @@ API Reference
 .. py:module:: debugclient
 
 The `debugclient` module provides two classes for interacting with a
-`DebugServer`_:
+`DebugServer-js`_ instance:
 
     | :ref:`DebugServer <debugserver>`
     | :ref:`DebugSession <debugsession>`
@@ -25,4 +25,4 @@ The `debugclient` module provides two classes for interacting with a
     api/debugserver
     api/debugsession
 
-.. _DebugServer: https://github.com/tiflash/debugserver-js
+.. _DebugServer-js: https://github.com/tiflash/debugserver-js
