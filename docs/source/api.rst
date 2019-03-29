@@ -6,8 +6,8 @@ API Reference
 
 .. py:module:: debugclient
 
-The `debugclient` module provides two classes for interacting with a
-`DebugServer-js`_ instance:
+The :py:mod:`debugclient` module provides two classes for interacting with a
+`debugserver-js`_ instance:
 
     | :ref:`DebugServer <debugserver>`
     | :ref:`DebugSession <debugsession>`
@@ -16,7 +16,7 @@ The `debugclient` module provides two classes for interacting with a
 
    You should not instantiate the :py:class:`DebugSession` class
    directly. Instead use the :py:meth:`DebugServer.open_session` command to obtain a
-   handle to a DebugSession object.
+   handle to a :py:class:`DebugSession` object.
 
 .. toctree::
     :maxdepth: 5
@@ -25,4 +25,5 @@ The `debugclient` module provides two classes for interacting with a
     api/debugserver
     api/debugsession
 
-.. _DebugServer-js: https://github.com/tiflash/debugserver-js
+.. _debugserver-js: https://github.com/tiflash/debugserver-js
+.. _debugclient-py: https://github.com/tiflash/debugclient-py

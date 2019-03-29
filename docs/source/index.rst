@@ -3,8 +3,8 @@
 DebugClient-py
 ==============
 
-DebugClient-py is a Python client for interacting with `DebugServer-js`_.
-Use this module to connect to a running `DebugServer-js`_ instance and send commands over TCP/IP.
+`debugclient-py`_ is a python client for interacting with `debugserver-js`_.
+Use this module to connect to a running `debugserver-js`_ instance and send commands over TCP/IP.
 
 ----
 
@@ -18,4 +18,5 @@ Use this module to connect to a running `DebugServer-js`_ instance and send comm
 
 
 .. External Links
-.. _DebugServer-js: https://github.com/tiflash/debugserver-js
+.. _debugserver-js: https://github.com/tiflash/debugserver-js
+.. _debugclient-py: https://github.com/tiflash/debugclient-py
