@@ -216,7 +216,7 @@ class DebugSession(GenericServer):
 
         Warning:
             You should never instantiate this class directly. Instead call the
-            :ref:`debugclient.DebugServer.open_session`_ function to create a DebugSession object
+            :py:meth:`DebugServer.open_session` function to create a DebugSession object
         """
         self._port = port
         self._hostname = host

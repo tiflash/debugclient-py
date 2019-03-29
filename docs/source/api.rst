@@ -4,6 +4,8 @@
 API Reference
 =============
 
+.. py:module:: debugclient
+
 The `debugclient` module provides two classes for interacting with a
 `DebugServer`_:
 
@@ -12,8 +14,8 @@ The `debugclient` module provides two classes for interacting with a
 
 .. warning::
 
-   You should not instantiate the :ref:`DebugSession <debugsession>` class
-   directly. Instead use the DebugServer.open_session() command to obtain a
+   You should not instantiate the :py:class:`DebugSession` class
+   directly. Instead use the :py:meth:`DebugServer.open_session` command to obtain a
    handle to a DebugSession object.
 
 .. toctree::
