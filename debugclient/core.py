@@ -209,11 +209,14 @@ class DebugSession(GenericServer):
     """DebugSession class for controlling session"""
 
     def __init__(self, host=None, port=None):
-        """Initializes DebugSession object
-
+        """
         Args:
             host (str, optional): hostname of DebugSession to connect to (default="localhost")
             port (int): port number of DebugSession to connect to
+
+        Warning:
+            You should never instantiate this class directly. Instead call the
+            :ref:`debugclient.DebugServer.open_session`_ function to create a DebugSession object
         """
         self._port = port
         self._hostname = host
@@ -236,16 +239,12 @@ class DebugSession(GenericServer):
     def erase(self):
         """Erases device's flash memory.
 
-        Warning:
-            Must be connected to device.
         """
         self._send_req("erase")
 
     def reset(self):
         """Resets device.
 
-        Warning:
-            Must be connected to device.
         """
         self._send_req("reset")
 
@@ -257,8 +256,6 @@ class DebugSession(GenericServer):
             binary (boolean, optional): specify to load image as binary (default = False)
             address (int, optional): specify to load binary image at specifc address (only to be used when 'binary' is True; default=0x0)
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if image fails to load
@@ -276,8 +273,6 @@ class DebugSession(GenericServer):
             binary (boolean, optional): specify to verify image as binary (default = False)
             address (int, optional): specify to verify binary image at specifc address (only to be used when 'binary' is True; default=0x0)
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if image fails verification process
@@ -297,8 +292,6 @@ class DebugSession(GenericServer):
         Returns:
             int: result of evaluated expression
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if expression is invalid.
@@ -322,8 +315,6 @@ class DebugSession(GenericServer):
         Returns:
             list: list of bytes(ints) read
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if address location is invalid.
@@ -340,8 +331,6 @@ class DebugSession(GenericServer):
             address (int): address to read data from
             page (int, optional): page in memory to get address from (default = 0)
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if address location is invalid.
@@ -357,8 +346,6 @@ class DebugSession(GenericServer):
         Returns:
             int: value of register read
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if register name is invalid.
@@ -372,8 +359,6 @@ class DebugSession(GenericServer):
             name (str): register name to write to
             value (int): value to write to register
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if register name is invalid.
@@ -389,8 +374,6 @@ class DebugSession(GenericServer):
         Returns:
             any: value of option
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if option id is invalid.
@@ -404,8 +387,6 @@ class DebugSession(GenericServer):
             option_id (str): name of device option
             value (any): value to set option to
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if option id is invalid.
@@ -421,8 +402,6 @@ class DebugSession(GenericServer):
         Returns:
             any: returns value of performing operation
 
-        Warning:
-            Must be connected to device.
 
         Raises:
             Exception if opcode is invalid.

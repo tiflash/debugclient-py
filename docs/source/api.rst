@@ -7,8 +7,8 @@ API Reference
 The `debugclient` module provides two classes for interacting with a
 `DebugServer`_:
 
-    1. :ref:`DebugServer <debugserver>`
-    2. :ref:`DebugSession <debugsession>`
+    | :ref:`DebugServer <debugserver>`
+    | :ref:`DebugSession <debugsession>`
 
 .. warning::
 
