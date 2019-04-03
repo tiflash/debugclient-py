@@ -1,6 +1,6 @@
 import os
 import pytest
-from debugclient import core
+from debugclient import DebugServer, DebugSession
 
 
 class TestDebugSession(object):

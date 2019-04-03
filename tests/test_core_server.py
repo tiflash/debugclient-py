@@ -1,13 +1,13 @@
 import os
 import pytest
-from debugclient import core
+from debugclient import DebugServer, DebugSession
 
 
 class Test_DebugServer:
     def test_DebugServer_instantiation(self, pid_and_port):
         """Tests instantiation of DebugServer object"""
         p, port = pid_and_port
-        DS = core.DebugServer(port=port)
+        DS = DebugServer(port=port)
 
     def test_set_config(self, debug_server, tenv):
         """Tests setting ccxml config file of DebugServer object"""
@@ -85,7 +85,7 @@ class Test_DebugServer:
         debug_server.set_config(tenv["ccxml-path"])
 
         debug_session = debug_server.open_session(session_name)
-        assert type(debug_session) == core.DebugSession
+        assert type(debug_session) == DebugSession
 
     def test_fail_open_existing_session(self, debug_server, tenv):
         """Tests fails when trying to open existing session"""

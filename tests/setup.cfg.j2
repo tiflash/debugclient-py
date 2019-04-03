@@ -1,0 +1,27 @@
+[tool:pytest]
+addopts = --html=TestReport.html
+norecursedirs = .* __* utils resources
+
+[paths]
+REPOPATH = {{ env.repo_path }}
+ccs-exe = {{ env.ccs_exe }}
+workspace = {{ env.repo_path }}/tests
+tmp = {{ env.repo_path }}/tests/tmp
+
+[testsetups-enabled]
+cc1310 = {{ 'true' if env.cc13x0.serno != "" else 'false' }}
+
+[cc1310]
+serno = {{ env.cc13x0.serno }}
+devicetype = CC1310F128
+session = .*Cortex.*
+connection = Texas Instruments XDS110 USB Debug Probe
+symbol = &Sensor_msgStats
+opcode = Erase
+option = ResetOnRestart
+expression = MassErase()
+address = 0x20000000
+ccxml-path = {{ env.repo_path }}/tests/resources/cc1310/cc1310.ccxml
+binary-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.bin
+hex-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.hex
+symbol-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.out

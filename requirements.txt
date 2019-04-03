@@ -1,3 +1,5 @@
+tox
 pytest
 pytest-dependency
 pytest-html
+jinja2

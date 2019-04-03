@@ -1,7 +1,7 @@
 try:
-    from ConfigParser import ConfigParser, ExtendedInterpolation # Python2
+    from ConfigParser import ConfigParser # Python2
 except ImportError:
-    from configparser import ConfigParser, ExtendedInterpolation # Python3
+    from configparser import ConfigParser # Python3
 
 def get_enabled_setups(cfgfile):
     """Returns list of names of all enabled setups in setup.cfg"""
@@ -19,7 +19,7 @@ def get_enabled_setups(cfgfile):
 
 def get_setup_env(cfgfile, setup_name):
     """Returns a dict of setup values"""
-    cfg = ConfigParser(None, interpolation=ExtendedInterpolation())
+    cfg = ConfigParser(None)
     cfg.optionxform = str
     cfg.read(cfgfile)
 

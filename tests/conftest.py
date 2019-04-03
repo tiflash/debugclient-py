@@ -2,7 +2,8 @@ import os, shutil
 import pytest
 from .utils.setupparser import get_enabled_setups, get_setup_env
 from .utils import dss
-from debugclient import core
+
+from debugclient import DebugServer, DebugSession
 
 SETUP_FILE = os.path.join(os.path.dirname(__file__), "setup.cfg")
 
@@ -40,7 +41,7 @@ def pid_and_port(request, tenv):
 def debug_server(request, tenv):
     """An instantiated DebugServer object"""
     p, port = dss.launch_server(tenv['ccs-exe'], tenv['workspace'])
-    DS = core.DebugServer(port=port)
+    DS = DebugServer(port=port)
 
     def teardown():
         p.terminate()

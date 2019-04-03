@@ -1,9 +1,10 @@
 configure:
 	git submodule update --init
-	pip install -r requirements.txt
+	python -m pip install -r requirements.txt
+	python tests/configure-env.py
 
 test:
-	pytest tests -x
+	tox .
 
 clean:
 	rm -rf assets
