@@ -58,14 +58,27 @@ def configure_setup(ccs_path=None, cc13x0=None):
     env['cc13x0'] = {'serno': get_cc13x0_serno(serno=cc13x0)}
 
     setup_cfg = os.path.join(get_repo_path(), "tests", DEFAULT_SETUP_CFG)
-    setup_cfg_j2 = os.path.join(get_repo_path(), "tests", DEFAULT_SETUP_CFG + ".j2")
+    setup_cfg_j2 = setup_cfg + ".j2"
 
     # Render setup template to setup.cfg file
     with open(setup_cfg_j2) as f:
         Template(f.read()).stream(env=env).dump(setup_cfg)
 
 
+def configure_cc13x0(cc13x0=None):
+    """Configures cc13x0 resources folder for testing
+        Args:
+            cc13x0 (str): serial number of the cc13x0 device used in your test setup
+    """
+    env = dict()
+    env['cc13x0'] = {'serno': get_cc13x0_serno(serno=cc13x0)}
 
+    cc13x0_ccxml = os.path.join(get_repo_path(), "tests", "resources", "cc13x0", "cc13x0.ccxml")
+    cc13x0_ccxml_j2 = cc13x0_ccxml + ".j2"
+
+    # Render ccxml template to cc13x0 ccxml file
+    with open(cc13x0_ccxml_j2) as f:
+        Template(f.read()).stream(env=env).dump(cc13x0_ccxml)
 
 
 def main():
@@ -76,6 +89,7 @@ def main():
     args = parser.parse_args()
 
     configure_setup(ccs_path=args.ccs, cc13x0=args.cc13x0)
+    configure_cc13x0(cc13x0=args.cc13x0)
 
 
 if __name__ == "__main__":

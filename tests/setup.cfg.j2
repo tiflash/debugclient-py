@@ -9,9 +9,9 @@ workspace = {{ env.repo_path }}/tests
 tmp = {{ env.repo_path }}/tests/tmp
 
 [testsetups-enabled]
-cc1310 = {{ 'true' if env.cc13x0.serno != "" else 'false' }}
+cc13x0 = {{ 'true' if env.cc13x0.serno != "" else 'false' }}
 
-[cc1310]
+[cc13x0]
 serno = {{ env.cc13x0.serno }}
 devicetype = CC1310F128
 session = .*Cortex.*
@@ -21,7 +21,7 @@ opcode = Erase
 option = ResetOnRestart
 expression = MassErase()
 address = 0x20000000
-ccxml-path = {{ env.repo_path }}/tests/resources/cc1310/cc1310.ccxml
-binary-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.bin
-hex-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.hex
-symbol-image = {{ env.repo_path }}/tests/resources/cc1310/sensor_cc1310lp.out
+ccxml-path = {{ env.repo_path }}/tests/resources/cc13x0/cc13x0.ccxml
+binary-image = {{ env.repo_path }}/tests/resources/cc13x0/sensor_cc13x0lp.bin
+hex-image = {{ env.repo_path }}/tests/resources/cc13x0/sensor_cc13x0lp.hex
+symbol-image = {{ env.repo_path }}/tests/resources/cc13x0/sensor_cc13x0lp.out
