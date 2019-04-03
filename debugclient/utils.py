@@ -44,7 +44,7 @@ def send(s, req):
     while b"\n" not in r:
         r.extend(s.recv(1024))
 
-    result = json.loads(r)
+    result = json.loads(r.decode())
     return result
 
 
