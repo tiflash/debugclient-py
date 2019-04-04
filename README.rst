@@ -33,12 +33,13 @@ for testing (if you want to run tests on a device not listed below, you'll need
 to provide similar resources for that device. See tests/resources/cc13x0 for an
 example)
 
-    - cc13x0
+- cc13x0
 
 Steps
 -----
 
 1. Edit the file tests/env.cfg
+
    a. Enter the full path to your ccs installation under `ccs_exe`
    b. Enter the serial number for the device you'd like to run tests on
 
