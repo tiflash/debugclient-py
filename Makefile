@@ -1,7 +1,7 @@
 configure:
 	git submodule update --init
 	python -m pip install -r requirements.txt
-	python tests/configure-env.py
+	python tests/utils/configure-env.py
 
 test:
 	tox .

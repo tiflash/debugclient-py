@@ -43,7 +43,7 @@ def get_ccs_exe(ccs_path=None):
 
 def get_repo_path():
     """Returns the full path to the repo directory"""
-    repo_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    repo_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     return os.path.abspath(repo_dir)
 
 
@@ -64,7 +64,7 @@ def configure_setup(ccs_path=None, cc13x0=None):
     env["cc13x0"] = {"serno": get_cc13x0_serno(serno=cc13x0)}
 
     setup_cfg = os.path.join(get_repo_path(), "tests", DEFAULT_SETUP_CFG)
-    setup_cfg_j2 = setup_cfg + ".j2"
+    setup_cfg_j2 = os.path.join(get_repo_path(), "tests", "resources", "templates", DEFAULT_SETUP_CFG + ".j2")
 
     # Render setup template to setup.cfg file
     with open(setup_cfg_j2) as f:
