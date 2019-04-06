@@ -12,12 +12,12 @@ EMAIL = "webbjcam@gmail.com"
 with open('README.rst') as f:
     long_description = f.read()
 
-# Get version string from debugclient/version.py
+# Get version string from dsclient/version.py
 _here = os.path.dirname(__file__)
 # defines version_string
-exec(open(os.path.join(_here, "debugclient", "version.py")).read())
+exec(open(os.path.join(_here, "dsclient", "version.py")).read())
 
-setup(  name='debugclient',
+setup(  name='dsclient',
         version=version_string, #@UndefinedVariable
         description=DESC,
         long_description=long_description,
@@ -28,7 +28,7 @@ setup(  name='debugclient',
         license='MIT',
         install_requires=[
         ],
-        packages=["debugclient"],
+        packages=["dsclient"],
         python_requires=">=2.7.13, <4",
         entry_points = {
         },

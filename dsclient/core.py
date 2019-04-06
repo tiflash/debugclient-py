@@ -1,5 +1,5 @@
-"""Contains the core class for debugclient-py"""
-from debugclient import utils
+"""Contains the core class for dsclient"""
+from dsclient import utils
 
 
 class GenericServer(object):

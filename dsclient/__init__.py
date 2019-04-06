@@ -1,11 +1,11 @@
 """
-DebugClient
+DSClient
 Licensed under the MIT license (see `LICENSE` file)
 
 Python client for interacting with DebugServer-js
 """
-from debugclient.core import DebugServer, DebugSession
-from debugclient.version import version_string as __version__
+from dsclient.core import DebugServer, DebugSession
+from dsclient.version import version_string as __version__
 
 __author__ = "Cameron Webb (webbjcam@gmail.com)"
 

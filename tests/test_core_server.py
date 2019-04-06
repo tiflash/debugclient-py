@@ -1,6 +1,6 @@
 import os
 import pytest
-from debugclient import DebugServer, DebugSession
+from dsclient import DebugServer, DebugSession
 
 
 class Test_DebugServer:

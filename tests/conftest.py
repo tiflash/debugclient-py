@@ -3,7 +3,7 @@ import pytest
 from .utils.setupparser import get_enabled_setups, get_setup_env
 from .utils import dss
 
-from debugclient import DebugServer, DebugSession
+from dsclient import DebugServer, DebugSession
 
 SETUP_FILE = os.path.join(os.path.dirname(__file__), "setup.cfg")
 
