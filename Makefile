@@ -9,4 +9,4 @@ test:
 clean:
 	rm -rf assets
 	rm -rf tests/__pycache__ tests/*.pyc tests/assets tests/utils/__pycache__
-	rm -rf debugclient/__pycache__  debugclient/*.pyc
+	rm -rf dsclient/__pycache__  dsclient/*.pyc
