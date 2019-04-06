@@ -4,7 +4,7 @@
 DebugSession
 ============
 
-.. py:module:: debugclient
+.. py:module:: dsclient
 
 .. autoclass:: DebugSession
     :members:

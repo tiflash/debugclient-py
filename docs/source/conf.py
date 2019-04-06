@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'debugclient-py'
+project = u'dsclient-py'
 copyright = u'2019, Cameron Webb'
 author = u'Cameron Webb'
 
@@ -104,7 +104,7 @@ html_static_path = ['.static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'debugclient-pydoc'
+htmlhelp_basename = 'dsclient-pydoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'debugclient-py.tex', u'debugclient-py Documentation',
+    (master_doc, 'dsclient-py.tex', u'dsclient-py Documentation',
      u'Cameron Webb', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'debugclient-py', u'debugclient-py Documentation',
+    (master_doc, 'dsclient-py', u'dsclient-py Documentation',
      [author], 1)
 ]
 
@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'debugclient-py', u'debugclient-py Documentation',
-     author, 'debugclient-py', 'One line description of project.',
+    (master_doc, 'dsclient-py', u'dsclient-py Documentation',
+     author, 'dsclient-py', 'One line description of project.',
      'Miscellaneous'),
 ]
 

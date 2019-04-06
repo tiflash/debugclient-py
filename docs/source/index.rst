@@ -1,9 +1,9 @@
-.. debugclient-py:
+.. dsclient-py:
 
-DebugClient-py
+DSClient-py
 ==============
 
-`debugclient-py`_ is a python client for interacting with `debugserver-js`_.
+`dsclient-py`_ is a python client for interacting with `debugserver-js`_.
 Use this module to connect to a running `debugserver-js`_ instance and send commands over TCP/IP.
 
 ----
@@ -19,4 +19,4 @@ Use this module to connect to a running `debugserver-js`_ instance and send comm
 
 .. External Links
 .. _debugserver-js: https://github.com/tiflash/debugserver-js
-.. _debugclient-py: https://github.com/tiflash/debugclient-py
+.. _dsclient-py: https://github.com/tiflash/dsclient-py

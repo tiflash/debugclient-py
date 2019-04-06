@@ -8,7 +8,7 @@ Requirements
 ============
 
 `debugserver-js`_
-    debugclient-py is designed to interact with `debugserver-js`_ therefore you'll
+    dsclient-py is designed to interact with `debugserver-js`_ therefore you'll
     need to have the `debugserver-js`_ `installed <https://debugserver-js.readthedocs.io/en/latest/started.html#install>`_ and
     an instance `running <https://debugserver-js.readthedocs.io/en/latest/started.html#launch>`_ to connect to.
 
@@ -22,8 +22,8 @@ Source:
 
 ::
 
-    git clone https://github.com/tiflash/debugclient-py
-    cd debugclient-py
+    git clone https://github.com/tiflash/dsclient-py
+    cd dsclient-py
     pip install .
 
 .. External Links

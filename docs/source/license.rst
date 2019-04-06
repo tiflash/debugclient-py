@@ -2,6 +2,6 @@
 
 License
 =======
-DebugClient-py is released under the MIT license:
+DSClient-py is released under the MIT license:
 
   .. literalinclude:: ../../LICENSE
