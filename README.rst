@@ -15,7 +15,7 @@ Install
 From PyPi
 ---------
 
-*Currently not available*
+pip install dsclient
 
 From Source
 -----------
