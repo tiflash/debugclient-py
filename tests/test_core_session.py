@@ -46,93 +46,93 @@ class TestDebugSession(object):
             debug_session.reset()
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_load(self, debug_session, tenv):
+    def test_load(self, debug_session, tdevice):
         """Tests loading image into device's flash"""
         debug_session.connect()
 
-        debug_session.load(tenv["hex-image"])
+        debug_session.load(tdevice["hex-image"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_load_binary(self, debug_session, tenv):
+    def test_load_binary(self, debug_session, tdevice):
         """Tests loading binary image into device's flash"""
         debug_session.connect()
 
-        debug_session.load(tenv["binary-image"], binary=True)
+        debug_session.load(tdevice["binary-image"], binary=True)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
     @pytest.mark.skip(reason="Need to find safe address to flash image at")
-    def test_load_binary_at_address(self, debug_session, tenv):
+    def test_load_binary_at_address(self, debug_session, tdevice):
         """Tests loading binary image into device's flash"""
         debug_session.connect()
 
-        debug_session.load(tenv["binary-image"], binary=True, address=0x100)
+        debug_session.load(tdevice["binary-image"], binary=True, address=0x100)
 
-    def test_fail_load_when_not_connected(self, debug_session, tenv):
+    def test_fail_load_when_not_connected(self, debug_session, tdevice):
         """Tests fails to load image into device's flash when device is not connected"""
         with pytest.raises(Exception):
-            debug_session.load(tenv["hex-image"])
+            debug_session.load(tdevice["hex-image"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_verify(self, debug_session, tenv):
+    def test_verify(self, debug_session, tdevice):
         """Tests verifying image in device's flash"""
         debug_session.connect()
 
-        debug_session.verify(tenv["hex-image"])
+        debug_session.verify(tdevice["hex-image"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
     @pytest.mark.xfail
-    def test_verify_binary(self, debug_session, tenv):
+    def test_verify_binary(self, debug_session, tdevice):
         """Tests verifying binary image in device's flash"""
         debug_session.connect()
 
-        debug_session.verify(tenv["binary-image"], binary=True)
+        debug_session.verify(tdevice["binary-image"], binary=True)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
     @pytest.mark.skip(reason="Need to find safe address to flash image at")
-    def test_verify_binary_at_address(self, debug_session, tenv):
+    def test_verify_binary_at_address(self, debug_session, tdevice):
         """Tests verifying binary image in device's flash"""
         debug_session.connect()
 
-        debug_session.verify(tenv["binary-image"], binary=True, address=0x100)
+        debug_session.verify(tdevice["binary-image"], binary=True, address=0x100)
 
-    def test_fail_verify_when_not_connected(self, debug_session, tenv):
+    def test_fail_verify_when_not_connected(self, debug_session, tdevice):
         """Tests fails to verify image in device's flash when device is not connected"""
         with pytest.raises(Exception):
-            debug_session.verify(tenv["hex-image"])
+            debug_session.verify(tdevice["hex-image"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_evaluate(self, debug_session, tenv):
+    def test_evaluate(self, debug_session, tdevice):
         """Tests evaluating an expression"""
         debug_session.connect()
 
-        result = debug_session.evaluate(tenv["expression"])
+        result = debug_session.evaluate(tdevice["expression"])
 
         assert type(result) == int
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_evaluate_with_symbols_file(self, debug_session, tenv):
+    def test_evaluate_with_symbols_file(self, debug_session, tdevice):
         """Tests evaluating an expression after loading symbols file"""
         debug_session.connect()
 
-        result = debug_session.evaluate(tenv["symbol"], file=tenv["symbol-image"])
+        result = debug_session.evaluate(tdevice["symbol"], file=tdevice["symbol-image"])
 
         assert type(result) == int
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_fail_evaluate_with_invalid_expression(self, debug_session, tenv):
+    def test_fail_evaluate_with_invalid_expression(self, debug_session, tdevice):
         """Tests failing when evaluating an invalid expression"""
         debug_session.connect()
 
         with pytest.raises(Exception):
-            debug_session.evaluate("&madeUpExpression", file=tenv["symbol-image"])
+            debug_session.evaluate("&madeUpExpression", file=tdevice["symbol-image"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_read_data(self, debug_session, tenv):
+    def test_read_data(self, debug_session, tdevice):
         """Tests reading data from device's memory"""
         debug_session.connect()
 
         result = debug_session.read_data(
-            page=0, address=int(tenv["address"], 16), num_bytes=4
+            page=0, address=int(tdevice["address"], 16), num_bytes=4
         )
 
         assert type(result) == list
@@ -147,12 +147,12 @@ class TestDebugSession(object):
             debug_session.read_data(page=0, address=0xFFFFFFFFF, num_bytes=4)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_write_data(self, debug_session, tenv):
+    def test_write_data(self, debug_session, tdevice):
         """Tests writing data to device's memory"""
         debug_session.connect()
 
         debug_session.write_data(
-            data=[0xFF, 0xFF], page=0, address=int(tenv["address"], 16)
+            data=[0xFF, 0xFF], page=0, address=int(tdevice["address"], 16)
         )
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
@@ -196,11 +196,11 @@ class TestDebugSession(object):
             debug_session.write_register("INVALIDREG", 0xBEEF)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_get_option(self, debug_session, tenv):
+    def test_get_option(self, debug_session, tdevice):
         """Tests getting value of device option"""
         debug_session.connect()
 
-        result = debug_session.get_option(tenv["option"])
+        result = debug_session.get_option(tdevice["option"])
         assert result == False
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
@@ -212,11 +212,11 @@ class TestDebugSession(object):
             debug_session.get_option("InvalidOption")
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_set_option(self, debug_session, tenv):
+    def test_set_option(self, debug_session, tdevice):
         """Tests setting value of device option"""
         debug_session.connect()
 
-        debug_session.set_option(tenv["option"], True)
+        debug_session.set_option(tdevice["option"], True)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
     def test_fail_set_option_invalid_id(self, debug_session):
@@ -227,19 +227,19 @@ class TestDebugSession(object):
             debug_session.set_option("InvalidOption", True)
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_fail_set_option_invalid_value(self, debug_session, tenv):
+    def test_fail_set_option_invalid_value(self, debug_session, tdevice):
         """Tests fails when setting invalid value of an option"""
         debug_session.connect()
 
         with pytest.raises(Exception):
-            debug_session.set_option(tenv["option"], "ShouldBeBoolean")
+            debug_session.set_option(tdevice["option"], "ShouldBeBoolean")
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
-    def test_perform_operation(self, debug_session, tenv):
+    def test_perform_operation(self, debug_session, tdevice):
         """Tests performing a device operation"""
         debug_session.connect()
 
-        debug_session.perform_operation(tenv["opcode"])
+        debug_session.perform_operation(tdevice["opcode"])
 
     @pytest.mark.dependency(depends=["TestDebugSession::test_connect"])
     def test_fail_perform_operation_invalid_opcode(self, debug_session):
