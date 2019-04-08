@@ -2,7 +2,7 @@
 CC13x0
 ======
 
-This folder contains the resources needed for running tests on CC1310/CC1350
+This folder contains the resources needed for running tests on CC1310_/CC1350_
 devices.
 
 Required Parameters
@@ -20,3 +20,5 @@ Add the following parameters to your `tests/env.cfg <../../env.cfg>`_ file:
     [cc13x0]
     serno: <device serial number>
 
+.. _CC1310: http://www.ti.com/tool/launchxl-cc1310
+.. _CC1350: http://www.ti.com/tool/launchxl-cc1350

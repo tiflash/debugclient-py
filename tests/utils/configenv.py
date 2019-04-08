@@ -1,4 +1,4 @@
-"""Configures test environment by setting up the 'setup.cfg' file with your
+"""Configures test environment by setting up the 'setup.json' file with your
     test environment paths and device configurations.
 
     Warning:

@@ -30,12 +30,8 @@ Steps
 
    a. Configure the test setup
 
-       ::
-
-           make configure
+       | ``make configure``
 
    b. Run tests
 
-       ::
-
-           make test
+      | ``make test``
