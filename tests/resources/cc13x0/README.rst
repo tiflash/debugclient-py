@@ -12,6 +12,8 @@ Add the following parameters to your `tests/env.cfg <../../env.cfg>`_ file:
 
 ::
 
+    # env.cfg
+
     [devices]
     cc13x0
 

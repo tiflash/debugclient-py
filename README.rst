@@ -41,7 +41,7 @@ example)
 Steps
 -----
 
-1. Edit the file tests/env.cfg
+1. Edit the file `tests/env.cfg <tests/env.cfg>`_
 
    a. Enter the full path to your ccs installation under ``ccs``
    b. Enter the required device information (see `tests/resources/cc13x0/README.rst <tests/resources/cc13x0/README.rst>`_
