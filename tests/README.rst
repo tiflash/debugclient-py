@@ -29,11 +29,13 @@ Steps
 2. From the top level repo directory (``cd ../``):
 
    a. Configure the test setup
+
    ::
 
        make configure
 
    b. Run tests
+
    ::
 
        make test
