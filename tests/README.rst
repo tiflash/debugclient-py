@@ -13,7 +13,7 @@ for testing (if you want to run tests on a device not listed below, you'll need
 to provide similar resources for that device. See `tests/resources/cc13x0 <resources/cc13x0>`_ for an
 example)
 
-- `cc1310/cc1350 <cc13x0/README.rst>`_
+- `cc1310/cc1350 <resources/cc13x0/README.rst>`_
 
 
 Steps
@@ -30,12 +30,12 @@ Steps
 
    a. Configure the test setup
 
-   ::
+       ::
 
-       make configure
+           make configure
 
    b. Run tests
 
-   ::
+       ::
 
-       make test
+           make test
