@@ -23,7 +23,7 @@ From Source
 -----------
 
 ::
-    
+
     cd dsclient-py/
     pip install .
 
@@ -43,8 +43,9 @@ Steps
 
 1. Edit the file tests/env.cfg
 
-   a. Enter the full path to your ccs installation under `ccs_exe`
-   b. Enter the serial number for the device you'd like to run tests on
+   a. Enter the full path to your ccs installation under `ccs`
+   b. Enter the required device information (see tests/resources/cc13x0/README.rst
+      for what's required)
 
 2. Configure the test setup
    ::
