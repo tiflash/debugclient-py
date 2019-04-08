@@ -25,13 +25,14 @@ Steps
    b. Enter the required device information (see `tests/resources/cc13x0/README.rst <resources/cc13x0/README.rst>`_
       for what's required)
 
+2. Configure the test setup
+   ::
 
-2. From the top level repo directory (``cd ../``):
+       # From the top level directory
+       make configure
 
-   a. Configure the test setup
+3. Run tests
+   ::
 
-       | ``make configure``
-
-   b. Run tests
-
-      | ``make test``
+       # From the top level directory
+       make test
