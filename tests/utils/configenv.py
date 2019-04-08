@@ -83,7 +83,7 @@ def configure_setup(envcfg):
             envcfg (str): full path to the env.cfg file
     """
     env = cfg_to_dict(envcfg)
-    env["devices"] = [ k for k in env["devices"].keys() ]
+    env["devices"] = [k for k in env["devices"].keys()]
     env["paths"]["repo"] = get_repo_path()
 
     # Set setup.json paths
@@ -96,13 +96,12 @@ def configure_setup(envcfg):
     setup_dict = render_j2_to_dict(setup_cfg_j2, env=env)
     env.update(setup_dict)
 
-
     # Render all j2 device files
     for dev in env["devices"]:
         j2files = [
             os.path.join(env["paths"]["resources"], dev, j2)
             for j2 in os.listdir(os.path.join(env["paths"]["resources"], dev))
-            if j2.endswith(".j2") # and not j2.startswith("setup")
+            if j2.endswith(".j2")  # and not j2.startswith("setup")
         ]
 
         for j2 in j2files:
@@ -114,24 +113,21 @@ def configure_setup(envcfg):
                 render_j2_to_file(j2, env=env)
 
     # write to setup.json
-    with open(setup_cfg, 'w') as f:
+    with open(setup_cfg, "w") as f:
         json.dump(env, f, indent=4)
-
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--cfg",
-        help="full path to env.cfg file to use (default = %s)"
-        % DEFAULT_ENV_CFG,
+        help="full path to env.cfg file to use (default = %s)" % DEFAULT_ENV_CFG,
         type=str,
-        default=None
+        default=None,
     )
 
     args = parser.parse_args()
     env_cfg_path = args.cfg or os.path.join(get_repo_path(), "tests", DEFAULT_ENV_CFG)
-
 
     configure_setup(env_cfg_path)
 

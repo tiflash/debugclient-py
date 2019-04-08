@@ -36,8 +36,9 @@ class Test_DebugServer:
         assert resp["directory"] == DIRECTORY
         assert os.path.exists(os.path.join(DIRECTORY, NAME))
 
-    def test_fail_create_config_non_existant_directory(self, debug_server,
-            tenv, tdevice):
+    def test_fail_create_config_non_existant_directory(
+        self, debug_server, tenv, tdevice
+    ):
         """Tests basic creation of ccxml file"""
         NAME = "BASIC.ccxml"
         CONNECTION = tdevice["connection"]
@@ -108,8 +109,9 @@ class Test_DebugServer:
         assert session_name in list(session_list.keys())
         assert session_list[session_name] is debug_session
 
-    def test_get_list_of_open_sessions_with_no_open_sessions(self,
-            debug_server, tdevice):
+    def test_get_list_of_open_sessions_with_no_open_sessions(
+        self, debug_server, tdevice
+    ):
         """Tests getting dict of existing sessions on a DebugServer with no open
         sessions"""
         debug_server.set_config(tdevice["ccxml-path"])

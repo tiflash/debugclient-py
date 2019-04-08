@@ -10,19 +10,20 @@ SETUP_FILE = os.path.join(os.path.dirname(__file__), "setup.json")
 
 # parametrize tenv fixture with each test setup
 def pytest_generate_tests(metafunc):
-    with open(SETUP_FILE, 'r') as f:
+    with open(SETUP_FILE, "r") as f:
         tsetup = json.load(f)
     if "tdevice" in metafunc.fixturenames:
-        tdevices = [ tsetup[dev] for dev in tsetup['devices'] ]
+        tdevices = [tsetup[dev] for dev in tsetup["devices"]]
         metafunc.parametrize("tdevice", tdevices, scope="class")
+
 
 @pytest.fixture(scope="class")
 def tenv(request):
     """Fixture for accessing paths set in setup.json file"""
-    with open(SETUP_FILE, 'r') as f:
+    with open(SETUP_FILE, "r") as f:
         tsetup = json.load(f)
 
-    return tsetup['paths']
+    return tsetup["paths"]
 
 
 @pytest.fixture(autouse=True, scope="class")
