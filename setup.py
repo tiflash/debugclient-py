@@ -3,8 +3,8 @@ from setuptools.command.install import install
 import os
 
 DESC = "Python Client for debugserver-js"
-URL = "https://github.com/tiflash/debugclient-py"
-DOCS_URL = "https://debugclient-py.readthedocs.io"
+URL = "https://github.com/tiflash/dsclient-py"
+DOCS_URL = "https://dsclient-py.readthedocs.io"
 
 AUTHOR = "Cameron Webb"
 EMAIL = "webbjcam@gmail.com"

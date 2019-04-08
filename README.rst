@@ -15,13 +15,16 @@ Install
 From PyPi
 ---------
 
-*Currently not available*
+::
+
+    pip install dsclient
 
 From Source
 -----------
 
 ::
-
+    
+    cd dsclient-py/
     pip install .
 
 Development
