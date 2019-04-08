@@ -33,7 +33,7 @@ Development
 To setup your development environment, you'll need at least one device to run
 tests on. Below are the devices supported out of the box that include resources
 for testing (if you want to run tests on a device not listed below, you'll need
-to provide similar resources for that device. See tests/resources/cc13x0 for an
+to provide similar resources for that device. See `tests/resources/cc13x0 <tests/resources/cc13x0>`_ for an
 example)
 
 - cc13x0
@@ -43,8 +43,8 @@ Steps
 
 1. Edit the file tests/env.cfg
 
-   a. Enter the full path to your ccs installation under `ccs`
-   b. Enter the required device information (see tests/resources/cc13x0/README.rst
+   a. Enter the full path to your ccs installation under ``ccs``
+   b. Enter the required device information (see `tests/resources/cc13x0/README.rst <tests/resources/cc13x0/README.rst>`_
       for what's required)
 
 2. Configure the test setup
