@@ -54,7 +54,7 @@ class Test_DebugServer:
         """Tests listing of CPU names"""
         debug_server.set_config(tdevice["ccxml-path"])
 
-        cpus = debug_server.get_list_of_CPUs()
+        cpus = debug_server.get_list_of_cpus()
         assert type(cpus) is list
         assert len(cpus) > 0
 

@@ -85,7 +85,7 @@ class DebugServer(GenericServer):
             str: full session name string to use with :py:meth:`DebugServer.open_session`
         """
         # Get list of available (full) session names
-        potential_sessions = self.get_list_of_CPUs()
+        potential_sessions = self.get_list_of_cpus()
 
         matches = [
             sess
@@ -148,7 +148,7 @@ class DebugServer(GenericServer):
 
         return self._send_req("createConfig", **args)
 
-    def get_list_of_CPUs(self):
+    def get_list_of_cpus(self):
         """Returns list of CPU names
 
         Returns:
