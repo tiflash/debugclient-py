@@ -196,6 +196,14 @@ class DebugServer(GenericServer):
         """
         return self._sessions
 
+    def attach_ccs(self):
+        """Opens a CCS GUI instance for the DebugServer
+
+        Raises:
+            Exception: raises exception if problem opening CCS
+        """
+        return self._send_req("attachCCS")
+
     def kill(self):
         """Kills Debug Server (including any open sessions) """
         for session_name in list(self._sessions.keys()):

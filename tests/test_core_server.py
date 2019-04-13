@@ -1,4 +1,5 @@
 import os
+import time
 import pytest
 from dsclient import DebugServer, DebugSession
 
@@ -126,4 +127,14 @@ class Test_DebugServer:
         debug_server.set_config(tdevice["ccxml-path"])
 
         debug_session = debug_server.open_session(session_name)
+        debug_server.terminate_session(session_name)
+
+    def test_attach_ccs(self, debug_server, tdevice):
+        """Tests terminating a DebugSession"""
+        session_name = tdevice["session"]
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        debug_session = debug_server.open_session(session_name)
+        debug_server.attach_ccs()
+        time.sleep(10)
         debug_server.terminate_session(session_name)
