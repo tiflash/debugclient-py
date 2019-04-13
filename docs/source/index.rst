@@ -15,6 +15,7 @@ Use this module to connect to a running `debugserver-js`_ instance and send comm
    api
    license
    disclaimer
+   changelog
 
 
 .. External Links
