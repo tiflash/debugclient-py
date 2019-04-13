@@ -110,6 +110,31 @@ class Test_DebugServer:
         with pytest.raises(Exception):
             debug_session = debug_server.open_session(session_name)
 
+    def test_get_session(self, debug_server, tdevice):
+        """Tests retrieving of DebugSession"""
+        session_name = tdevice["session"]
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        debug_session = debug_server.open_session(session_name)
+        assert debug_server.get_session(session_name) == debug_session
+
+    def test_get_session_with_regex(self, debug_server, tdevice):
+        """Tests creation of DebugServer"""
+        session_name = tdevice["session"]
+        session_regex = ".*" + session_name + ".*"
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        debug_session = debug_server.open_session(session_regex)
+        assert debug_server.get_session(session_regex) == debug_session
+
+    def test_fail_get_unopen_session(self, debug_server, tdevice):
+        """Tests fails when trying to get unopen session"""
+        session_name = tdevice["session"]
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        with pytest.raises(Exception):
+            debug_session = debug_server.get_session(session_name)
+
     def test_get_list_of_open_sessions(self, debug_server, tdevice):
         """Tests getting dict of existing sessions"""
         session_name = tdevice["session"]

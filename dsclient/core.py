@@ -87,7 +87,11 @@ class DebugServer(GenericServer):
         # Get list of available (full) session names
         potential_sessions = self.get_list_of_CPUs()
 
-        matches = [ sess for sess in potential_sessions if re.search(session_name, sess) is not None ]
+        matches = [
+            sess
+            for sess in potential_sessions
+            if re.search(session_name, sess) is not None
+        ]
 
         if len(matches) == 0:
             raise Exception("Could not resolve session name: %s" % session_name)
@@ -185,15 +189,31 @@ class DebugServer(GenericServer):
         Returns:
             DebugSession: DebugSession object
         """
-        if name in list(self._sessions.keys()):
-            raise Exception("Session: %s is already open." % name)
-
         session_name = self.__resolve_session_name(name)
+
+        if session_name in list(self._sessions.keys()):
+            raise Exception("Session: %s is already open." % session_name)
 
         session_info = self._send_req("openSession", name=session_name)
         self._sessions[session_name] = DebugSession(
             host=self._hostname, port=session_info["port"]
         )
+
+        return self._sessions[session_name]
+
+    def get_session(self, name):
+        """Returns handle to the open session
+
+        Args:
+            name (str): name of open session to retrieve handle for
+
+        Returns:
+            DebugSession: DebugSession object
+        """
+        session_name = self.__resolve_session_name(name)
+
+        if session_name not in list(self._sessions.keys()):
+            raise Exception("Session: %s is not open." % session_name)
 
         return self._sessions[session_name]
 
