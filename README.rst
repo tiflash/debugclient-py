@@ -1,6 +1,6 @@
-==============
-DSClient-py
-==============
+=====================
+DSClient-py   |Build|
+=====================
 
 A Python client for interacting with `debugserver-js <https://github.com/tiflash/debugserver-js>`__
 
@@ -56,3 +56,9 @@ Steps
    ::
 
        make test
+
+.. Badges:
+
+.. |Build| image::    https://travis-ci.org/webbcam/dsclient-py.svg?branch=master
+    :target:            https://travis-ci.org/webbcam/dsclient-py
+    :alt:               Build
