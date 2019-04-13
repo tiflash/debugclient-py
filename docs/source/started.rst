@@ -18,6 +18,13 @@ Requirements
 Install
 =======
 
+PyPi:
+
+::
+
+    pip install dsclient
+
+
 Source:
 
 ::
