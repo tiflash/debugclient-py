@@ -87,7 +87,11 @@ class DebugServer(GenericServer):
         # Get list of available (full) session names
         potential_sessions = self.get_list_of_CPUs()
 
-        matches = [ sess for sess in potential_sessions if re.search(session_name, sess) is not None ]
+        matches = [
+            sess
+            for sess in potential_sessions
+            if re.search(session_name, sess) is not None
+        ]
 
         if len(matches) == 0:
             raise Exception("Could not resolve session name: %s" % session_name)

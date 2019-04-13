@@ -125,7 +125,7 @@ class Test_DebugServer:
         debug_server.set_config(tdevice["ccxml-path"])
 
         debug_session = debug_server.open_session(session_regex)
-        assert  debug_server.get_session(session_regex) == debug_session
+        assert debug_server.get_session(session_regex) == debug_session
 
     def test_fail_get_unopen_session(self, debug_server, tdevice):
         """Tests fails when trying to get unopen session"""
