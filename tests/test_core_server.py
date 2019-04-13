@@ -89,6 +89,17 @@ class Test_DebugServer:
 
         debug_session = debug_server.open_session(session_name)
         assert type(debug_session) == DebugSession
+        assert session_name in list(debug_server._sessions.keys())
+
+    def test_open_session_with_regex(self, debug_server, tdevice):
+        """Tests creation of DebugServer"""
+        session_name = tdevice["session"]
+        session_regex = ".*" + session_name + ".*"
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        debug_session = debug_server.open_session(session_regex)
+        assert type(debug_session) == DebugSession
+        assert session_name in list(debug_server._sessions.keys())
 
     def test_fail_open_existing_session(self, debug_server, tdevice):
         """Tests fails when trying to open existing session"""
@@ -107,6 +118,19 @@ class Test_DebugServer:
         debug_session = debug_server.open_session(session_name)
         session_list = debug_server.get_list_of_sessions()
 
+        assert session_name in list(session_list.keys())
+        assert session_list[session_name] is debug_session
+
+    def test_get_list_of_open_sessions_regex(self, debug_server, tdevice):
+        """Tests getting dict of existing sessions that used regex session names"""
+        session_name = tdevice["session"]
+        session_regex = ".*" + session_name + ".*"
+        debug_server.set_config(tdevice["ccxml-path"])
+
+        debug_session = debug_server.open_session(session_regex)
+        session_list = debug_server.get_list_of_sessions()
+
+        assert session_regex not in list(session_list.keys())
         assert session_name in list(session_list.keys())
         assert session_list[session_name] is debug_session
 

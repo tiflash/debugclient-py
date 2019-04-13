@@ -1,5 +1,6 @@
 """Contains the core class for dsclient"""
 from dsclient import utils
+import re
 
 
 class GenericServer(object):
@@ -72,6 +73,28 @@ class DebugServer(GenericServer):
             self._sessions[session["name"]] = DebugSession(
                 host=self._hostname, port=session["port"]
             )
+
+    def __resolve_session_name(self, session_name):
+        """Resolves the provided session_name (regex) to the full session name
+        to use.
+
+        Args:
+            session_name (str): session name to resolve (can be regex pattern)
+
+        Returns:
+            str: full session name string to use with :py:meth:`DebugServer.open_session`
+        """
+        # Get list of available (full) session names
+        potential_sessions = self.get_list_of_CPUs()
+
+        matches = [ sess for sess in potential_sessions if re.search(session_name, sess) is not None ]
+
+        if len(matches) == 0:
+            raise Exception("Could not resolve session name: %s" % session_name)
+        elif len(matches) > 1:
+            raise Exception("Found multiple potential session names: %s" % str(matches))
+
+        return matches[0]
 
     def set_config(self, ccxml_path):
         """Set ccxml file for DebugServer
@@ -165,12 +188,14 @@ class DebugServer(GenericServer):
         if name in list(self._sessions.keys()):
             raise Exception("Session: %s is already open." % name)
 
-        session_info = self._send_req("openSession", name=name)
-        self._sessions[name] = DebugSession(
+        session_name = self.__resolve_session_name(name)
+
+        session_info = self._send_req("openSession", name=session_name)
+        self._sessions[session_name] = DebugSession(
             host=self._hostname, port=session_info["port"]
         )
 
-        return self._sessions[name]
+        return self._sessions[session_name]
 
     def terminate_session(self, name):
         """Terminates an open session
